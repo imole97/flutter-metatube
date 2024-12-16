@@ -76,7 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(
                         width: 8,
                       ),
-                      _actionButton(() => null, Icons.folder),
+                      _actionButton(() => fileService.newDirectory(context),
+                          Icons.folder),
                     ],
                   )
                 ],

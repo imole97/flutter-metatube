@@ -80,6 +80,18 @@ class FileService {
     SnackBarUtils.showSnackbar(context, Icons.file_upload, 'New file created');
   }
 
+  void newDirectory(context) async {
+    try {
+      String? directory = await FilePicker.platform.getDirectoryPath();
+      _selectedDirectory = directory!;
+      _selectedFile = null;
+      SnackBarUtils.showSnackbar(context, Icons.folder, 'New folder selected');
+    } catch (e) {
+      SnackBarUtils.showSnackbar(
+          context, Icons.error_rounded, 'No folder selected');
+    }
+  }
+
   static String getTodayDate() {
     final now = DateTime.now();
     final formatter = DateFormat('yyyy-MM-dd');
